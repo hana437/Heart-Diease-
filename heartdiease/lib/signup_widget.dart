@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heartdiease/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:heartdiease/screen2.dart';
 //Widget for input
 
 class SignUpWidget extends StatefulWidget {
@@ -52,10 +52,9 @@ class SignUpState extends State<SignUpWidget> {
                         children: <Widget>[
                           Card(
                             elevation: 2.0,
-                           // color: Color.fromARGB(255, 214, 44, 44),
+                            // color: Color.fromARGB(255, 214, 44, 44),
                             margin: const EdgeInsets.only(top: 10.0),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0)),
+                           
                             child: Container(
                               width: 360.00,
                               height: 480.00,
@@ -72,8 +71,6 @@ class SignUpState extends State<SignUpWidget> {
                                         bottom: 20.0,
                                         left: 25.0,
                                         right: 25.0),
-                                        
-                                    
                                     child: TextField(
                                       focusNode: focusEmail,
                                       controller: emailController,
@@ -177,7 +174,11 @@ class SignUpState extends State<SignUpWidget> {
                                         ),
                                       ),
                                       onPressed: () {
-                                        Navigator.pop(context);
+                                        //Navigator.pop(context);
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Screen2()));
                                       },
                                     ),
                                   )
@@ -193,11 +194,12 @@ class SignUpState extends State<SignUpWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
+                              //margin: EdgeInsets.only(top: 30.0),
                               decoration: BoxDecoration(
                                 gradient: new LinearGradient(
                                     colors: [
-                                      Colors.white10,
                                       Colors.white,
+                                      Color.fromARGB(26, 189, 41, 41),
                                     ],
                                     begin: const FractionalOffset(0.0, 0.0),
                                     end: const FractionalOffset(1.0, 1.0),
@@ -212,7 +214,7 @@ class SignUpState extends State<SignUpWidget> {
                               child: Text(
                                 "OR",
                                 style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     decoration: TextDecoration.none,
                                     fontSize: 16.0,
                                     fontFamily: "WorkSansMedium"),
@@ -242,7 +244,7 @@ class SignUpState extends State<SignUpWidget> {
                           child: Text(
                             "Sign up with",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 18.0,
                                 fontFamily: "SignikaRegular"),
                           ),
@@ -264,40 +266,6 @@ class SignUpState extends State<SignUpWidget> {
                                 ),
                                 child: new Icon(
                                   FontAwesomeIcons.facebookF,
-                                  color: Color(0xFF0084ff),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10.0, right: 40.0),
-                            child: GestureDetector(
-                              onTap: () => {},
-                              child: Container(
-                                padding: const EdgeInsets.all(15.0),
-                                decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                ),
-                                child: new Icon(
-                                  FontAwesomeIcons.instagram,
-                                  color: Color(0xFF0084ff),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10.0, right: 40.0),
-                            child: GestureDetector(
-                              onTap: () => {},
-                              child: Container(
-                                padding: const EdgeInsets.all(15.0),
-                                decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                ),
-                                child: new Icon(
-                                  FontAwesomeIcons.github,
                                   color: Color(0xFF0084ff),
                                 ),
                               ),
