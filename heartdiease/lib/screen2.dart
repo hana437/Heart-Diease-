@@ -4,7 +4,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 //import 'package:heartdiease/main.dart'
 //import 'package:heartdiease/login.dart';
 //import 'package:heartdiease/screen3.dart';
-import 'package:heartdiease/home.dart';
+import 'package:heartdiease/ll.dart';
 
 void main() {
   runApp(MyApp());
@@ -86,7 +86,7 @@ class _Screen2State extends State<Screen2> {
                               //padding: EdgeInsets.symmetric(vertical: 10.0,),
                               //padding: EdgeInsets.all(2),
                               //padding: EdgeInsets.only(top: 2),
-                              margin: EdgeInsets.fromLTRB(15, 40, 10, 10),
+                              margin: EdgeInsets.fromLTRB(15, 80, 10, 10),
                               padding:
                                   const EdgeInsets.only(left: 40, right: 40),
                               child: Column(
@@ -151,7 +151,8 @@ class _Screen2State extends State<Screen2> {
                                       onPressed: () {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
-                                                builder: (context) => home()));
+                                                builder: (context) =>
+                                                    CustomButtonTest()));
                                       },
                                       child: Text('Next',
                                           style:

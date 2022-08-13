@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:heartdiease/screen2.dart';
+import 'package:heartdiease/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Screen2(),
+      home: home(),
     );
   }
 }
