@@ -5,6 +5,10 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 //import 'package:heartdiease/main.dart'
 //import 'package:heartdiease/login.dart';
 import 'package:heartdiease/screen3.dart';
+import 'package:heartdiease/screen3.dart';
+import 'package:heartdiease/home.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:heartdiease/Login_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -64,42 +68,74 @@ class _resultState extends State<result> {
                             height: 60.0,
                             //color: Colors.blue,
                             //margin: EdgeInsets.all(8),
-                            margin: EdgeInsets.fromLTRB(30, 40, 10, 10),
+                            margin: EdgeInsets.fromLTRB(30, 30, 1, 10),
                             padding:
                                 const EdgeInsets.only(left: 0, right: 0.0004),
 
                             //margin: const EdgeInsets.only(top: 40.0),
                             //margin: const EdgeInsets.only(right: 40.0),
                             child: Row(
-                              //in this column
-
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text(
-                                  'Prediction',
-                                  style: TextStyle(
-                                    fontSize: 30.0,
+                                //in this colu
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Patient Data',
+                                    style: TextStyle(
+                                      fontSize: 30.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Icon(
-                                  Icons.menu,
-                                  color: Colors.black,
-                                  size: 40.0,
-                                ),
-                                Divider(
-                                  color: Colors.redAccent, //color of divider
-                                  height: 5, //height spacing of divider
-                                  thickness: 3, //thickness of divier line
-                                  indent: 25, //spacing at the start of divider
-                                  endIndent: 25, //spacing at the end of divider
-                                )
-                              ],
-                            )),
+                                  DropdownButtonHideUnderline(
+                                    child: DropdownButton2(
+                                      customButton: const Icon(
+                                        Icons.list,
+                                        size: 46,
+                                        //: Colors.red,
+                                      ),
+                                      customItemsIndexes: const [3],
+                                      customItemsHeight: 8,
+                                      items: [
+                                        ...MenuItems.firstItems.map(
+                                          (item) => DropdownMenuItem<MenuItem>(
+                                            value: item,
+                                            child: MenuItems.buildItem(item),
+                                          ),
+                                        ),
+                                        const DropdownMenuItem<Divider>(
+                                            enabled: false, child: Divider()),
+                                        ...MenuItems.secondItems.map(
+                                          (item) => DropdownMenuItem<MenuItem>(
+                                            value: item,
+                                            child: MenuItems.buildItem(item),
+                                          ),
+                                        ),
+                                      ],
+                                      onChanged: (value) {
+                                        MenuItems.onChanged(
+                                            context, value as MenuItem);
+                                      },
+                                      itemHeight: 48,
+                                      itemPadding: const EdgeInsets.only(
+                                          left: 16, right: 16),
+                                      dropdownWidth: 160,
+                                      dropdownPadding:
+                                          const EdgeInsets.symmetric(
+                                              vertical: 6),
+                                      dropdownDecoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Colors.redAccent,
+                                      ),
+                                      dropdownElevation: 8,
+                                      offset: const Offset(0, 8),
+                                    ),
+                                  ),
+                                ])),
                         Container(
                             width: 13.0,
                             color: Colors.red,
                             alignment: Alignment.center,
-                            margin: EdgeInsets.fromLTRB(25, 2, 40, 10),
+                            margin: EdgeInsets.fromLTRB(95, 12, 10, 10),
                             child: Container()),
                         Divider(color: Colors.black),
                         Expanded(
@@ -165,5 +201,65 @@ class _resultState extends State<result> {
         ),
       )),
     );
+  }
+}
+
+class MenuItem {
+  final String text;
+  final IconData icon;
+
+  const MenuItem({
+    required this.text,
+    required this.icon,
+  });
+}
+
+class MenuItems {
+  static const List<MenuItem> firstItems = [home, share, settings];
+  static const List<MenuItem> secondItems = [logout];
+
+  static const home = MenuItem(text: 'Home', icon: Icons.home);
+  static const share = MenuItem(text: 'Share', icon: Icons.share);
+  static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
+  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
+
+  static Widget buildItem(MenuItem item) {
+    return Row(
+      children: [
+        Icon(item.icon, color: Colors.white, size: 22),
+        const SizedBox(
+          width: 10,
+        ),
+        Text(
+          item.text,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ],
+    );
+  }
+
+  static onChanged(BuildContext context, MenuItem item) {
+    switch (item) {
+      case MenuItems.home:
+        //Do something
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => homepage()));
+
+        break;
+      case MenuItems.settings:
+        //Do something
+
+        break;
+      case MenuItems.share:
+        //Do something
+        break;
+      case MenuItems.logout:
+        //Do something
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+        break;
+    }
   }
 }

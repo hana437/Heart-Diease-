@@ -16,17 +16,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: home(),
+      home: homepage(),
     );
   }
 }
 
-class home extends StatefulWidget {
+class homepage extends StatefulWidget {
   @override
-  _homeState createState() => _homeState();
+  _homepageState createState() => _homepageState();
 }
 
-class _homeState extends State<home> {
+class _homepageState extends State<homepage> {
   String msg = 'Flutter RaisedButton Example';
   //final formKey = GlobalKey<FormState>(); //key for form
   //String name = "";
@@ -119,12 +119,12 @@ class _homeState extends State<home> {
                               ),
                             ),
                             Container(
-                              height: 30.0,
+                              height: 50.0,
                               width: 275,
 
                               //color: Colors.blue,
                               // margin: EdgeInsets.all(1),
-                              margin: EdgeInsets.fromLTRB(2, 70, 0.10, 5),
+                              margin: EdgeInsets.fromLTRB(1, 70, 0.10, 5),
                               child: Text(
                                 'helps you in heart dieases prediction',
                                 style: TextStyle(
@@ -149,7 +149,7 @@ class _homeState extends State<home> {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  LoginWidget()));
+                                                  SignUpWidget()));
                                     },
                                     child: Text('Join Now',
                                         style: TextStyle(color: Colors.green)),

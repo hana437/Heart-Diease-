@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heartdiease/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:heartdiease/screen2.dart';
+import 'package:heartdiease/login_widget.dart';
 //Widget for input
 
 class SignUpWidget extends StatefulWidget {
@@ -36,12 +36,12 @@ class SignUpState extends State<SignUpWidget> {
                 width: 750,
                 height: 750,
                 decoration: BoxDecoration(
-                  //color: Color.fromARGB(214, 5, 126, 9),
-                  border: Border.all(
-                    width: 10,
-                    color: Color.fromARGB(255, 54, 56, 54),
-                  ),
-                ),
+                    //color: Color.fromARGB(214, 5, 126, 9),
+                    // colorborder: Border.all(
+                    //width: 10,
+                    //color: Color.fromARGB(255, 138, 134, 134),
+                    //),
+                    ),
                 child: Container(
                   padding: EdgeInsets.only(top: 30.0),
                   child: Column(
@@ -54,7 +54,7 @@ class SignUpState extends State<SignUpWidget> {
                             elevation: 2.0,
                             // color: Color.fromARGB(255, 214, 44, 44),
                             margin: const EdgeInsets.only(top: 10.0),
-                           
+
                             child: Container(
                               width: 360.00,
                               height: 480.00,
@@ -63,7 +63,7 @@ class SignUpState extends State<SignUpWidget> {
                                   Container(
                                     width: 250.0,
                                     height: 1.0,
-                                    color: Colors.grey,
+                                    //color: Colors.grey,
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(
@@ -178,7 +178,7 @@ class SignUpState extends State<SignUpWidget> {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    Screen2()));
+                                                    LoginScreen()));
                                       },
                                     ),
                                   )
