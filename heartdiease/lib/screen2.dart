@@ -6,6 +6,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 //import 'package:heartdiease/main.dart'
 //import 'package:heartdiease/login.dart';
 import 'package:heartdiease/home.dart';
+import 'package:heartdiease/result.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:heartdiease/Login_widget.dart';
 
@@ -18,6 +19,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   //String msg = 'Flutter RaisedButton Example';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,12 +45,13 @@ String thalium = "";
 double res = 0.0;
 
 class screen2 extends StatefulWidget {
-  //const screen2({Key? key}) : super(key: key);
+  screen2({Key? key}) : super(key: key);
   var data;
+
   bool autoValidate = true;
   bool readOnly = false;
   bool showSegmentedControl = true;
-  final formKey = GlobalKey<FormState>();
+
   String name = "";
   @override
   State<screen2> createState() => _screen2State();
@@ -57,6 +60,7 @@ class screen2 extends StatefulWidget {
 class _screen2State extends State<screen2> {
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     TextEditingController fname = TextEditingController();
@@ -170,6 +174,12 @@ class _screen2State extends State<screen2> {
                                         onChanged: (value) {
                                           age = value;
                                         },
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter some text';
+                                          }
+                                          return null;
+                                        },
                                       ),
                                       SizedBox(
                                         height: height * 0.05,
@@ -226,6 +236,12 @@ class _screen2State extends State<screen2> {
                                         onChanged: (value) {
                                           bp = value;
                                         },
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter some text';
+                                          }
+                                          return null;
+                                        },
                                       ),
 
                                       SizedBox(
@@ -236,6 +252,12 @@ class _screen2State extends State<screen2> {
                                             labelText: "Cholestrol"),
                                         onChanged: (value) {
                                           cholesterol = value;
+                                        },
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter some text';
+                                          }
+                                          return null;
                                         },
                                       ),
                                       SizedBox(
@@ -305,7 +327,7 @@ class _screen2State extends State<screen2> {
                                               style: TextStyle(
                                                   color: Colors.white)),
                                         ),
-                                      )
+                                      ),
                                     ],
                                   )))),
                     ]))));
@@ -403,8 +425,10 @@ Future<void> makePostRequest() async {
   );
   print('Status code: ${response.statusCode}');
   print('Body: ');
-  res = jsonDecode(response.body)[1];
-  print(res);
+  var c = {};
+  c = jsonDecode(response.body);
+  res = c['result'][0];
+  print(c['result'][0]);
 }
 
 const urlPrefix = "http://192.168.110.229:5000";
@@ -698,6 +722,17 @@ class _Screen3State extends State<Screen3> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       result()));
+                                          if (formKey.currentState!
+                                              .validate()) {
+                                            // If the form is valid, display a snackbar. In the real world,
+                                            // you'd often call a server or save the information in a database.
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                  content:
+                                                      Text('Processing Data')),
+                                            );
+                                          }
                                         },
                                         child: Text('Predict',
                                             style:
@@ -852,7 +887,7 @@ class _resultState extends State<result> {
                                                   ),
                                                 ),
                                               )),
-                                          if (res > 0.5)
+                                          if (res < 0.5)
                                             Text(
                                               'Normal',
                                               style: TextStyle(

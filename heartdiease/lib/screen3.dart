@@ -374,10 +374,10 @@ class _Screen3State extends State<Screen3> {
                                           makePostRequest();
                                           // makeGetRequest();
                                           //print();
-                                          // Navigator.of(context).push(
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) =>
-                                          //             result()));
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MyApp()));
                                         },
                                         child: Text('Predict',
                                             style:
