@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:heartdiease/constant.dart';
 import 'package:heartdiease/screen2.dart';
+import 'package:heartdiease/screen3.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -169,8 +171,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => CustomButtonTest()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => screen2()));
         },
         padding: EdgeInsets.all(15.0),
         color: Colors.green,
@@ -241,16 +243,48 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          _buildSocialBtn(
-            () => print('Login with Facebook'),
-            AssetImage(
-              'assets/logos/facebook.jpg',
+          Padding(
+            padding: EdgeInsets.only(top: 10.0, right: 50.0),
+            child: GestureDetector(
+              onTap: () => {},
+              child: Container(
+                //width: 150,
+                padding: const EdgeInsets.all(15.0),
+                decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  //color: Colors.blue,
+                  border: Border.all(
+                    width: 1,
+                    color: Color.fromARGB(244, 207, 197, 197),
+                  ),
+                ),
+                child: new Icon(
+                  FontAwesomeIcons.facebookF,
+                  color: Color(0xFF0084ff),
+                ),
+              ),
             ),
           ),
-          _buildSocialBtn(
-            () => print('Login with Google'),
-            AssetImage(
-              'assets/logos/google.jpg',
+          Padding(
+            padding: EdgeInsets.only(top: 10.0),
+            child: GestureDetector(
+              onTap: () => {},
+              child: Container(
+                // width: 140,
+                padding: const EdgeInsets.all(15.0),
+                decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    width: 1,
+                    color: Color.fromARGB(244, 207, 197, 197),
+                  ),
+                  color: Colors.white,
+                ),
+                child: new Icon(
+                  FontAwesomeIcons.google,
+                  color: Color(0xFF0084ff),
+                ),
+              ),
             ),
           ),
         ],

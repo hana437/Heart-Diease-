@@ -45,6 +45,11 @@ dependencies:
   dropdown_formfield: ^0.1.4
   bezier: ^1.2.0
   google_fonts: ^3.0.1
+  csv: ^5.0.1
+  http: ^0.13.4
+  chopper: ^4.0.6
+  settings_ui: ^1.0.0
+  dropdown_search: ^5.0.2
  
 
 dev_dependencies:

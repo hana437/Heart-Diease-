@@ -140,18 +140,20 @@ class SignUpState extends State<SignUpWidget> {
                                             Radius.circular(5.0)),
                                         boxShadow: <BoxShadow>[
                                           BoxShadow(
-                                              color: AppColours.colorStart,
+                                              color: Color.fromARGB(
+                                                  255, 13, 161, 33),
                                               offset: Offset(1.0, 6.0),
                                               blurRadius: 20.0),
                                           BoxShadow(
-                                              color: AppColours.colorEnd,
+                                              color: Color.fromARGB(
+                                                  255, 21, 192, 58),
                                               offset: Offset(1.0, 6.0),
                                               blurRadius: 20.0),
                                         ],
                                         gradient: LinearGradient(
                                             colors: [
-                                              AppColours.colorEnd,
-                                              AppColours.colorStart
+                                              Color.fromARGB(255, 21, 192, 35),
+                                              Color.fromARGB(255, 25, 161, 13)
                                             ],
                                             begin: const FractionalOffset(
                                                 0.2, 0.2),
@@ -161,7 +163,8 @@ class SignUpState extends State<SignUpWidget> {
                                             tileMode: TileMode.clamp)),
                                     child: MaterialButton(
                                       highlightColor: Colors.transparent,
-                                      splashColor: AppColours.colorEnd,
+                                      splashColor:
+                                          Color.fromARGB(255, 21, 192, 29),
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 10.0, horizontal: 42.0),
@@ -261,7 +264,7 @@ class SignUpState extends State<SignUpWidget> {
                               child: Container(
                                 padding: const EdgeInsets.all(15.0),
                                 decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
+                                  //shape: BoxShape.circle,
                                   color: Colors.white,
                                 ),
                                 child: new Icon(
